@@ -1,0 +1,125 @@
+/* ============================================
+   TicTacToe.css — Main Container & Layout
+   ============================================ */
+
+/* ---- Outer container ---- */
+.ttt-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 36px 40px 28px;
+  min-width: 380px;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 24px 64px rgba(0, 0, 0, 0.55),
+    0 8px 20px rgba(0, 0, 0, 0.35);
+
+  /* Subtle entrance animation */
+  animation: ttt-card-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes ttt-card-in {
+  from { opacity: 0; transform: translateY(16px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)   scale(1);    }
+}
+
+/* ---- Header ---- */
+.ttt-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.ttt-header__subtitle {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 4px;
+}
+
+.ttt-header__title {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.ttt-header__hint {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-tertiary);
+  letter-spacing: 0.05em;
+}
+
+/* ---- Restart button (REQ-12) ---- */
+.ttt-restart-btn {
+  margin-top: 22px;
+  padding: 10px 32px;
+  border-radius: 10px;
+  border: 1.5px solid var(--border-hover);
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    border-color 0.15s,
+    color 0.15s,
+    transform 0.12s;
+}
+
+.ttt-restart-btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.28);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+.ttt-restart-btn:active {
+  transform: translateY(0);
+}
+
+.ttt-restart-btn:focus-visible {
+  outline: 2px solid var(--x-primary);
+  outline-offset: 3px;
+}
+
+/* ---- Footer instructions (Section 2.6) ---- */
+.ttt-footer {
+  margin-top: 20px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+  width: 100%;
+}
+
+.ttt-footer p {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-tertiary);
+  letter-spacing: 0.04em;
+  line-height: 1.8;
+}
+
+/* ---- Responsive: smaller screens ---- */
+@media (max-width: 480px) {
+  .ttt-container {
+    min-width: unset;
+    width: 100%;
+    border-radius: 0;
+    padding: 28px 20px 24px;
+    border-left: none;
+    border-right: none;
+    box-shadow: none;
+  }
+}

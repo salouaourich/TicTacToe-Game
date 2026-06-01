@@ -1,0 +1,109 @@
+/* ============================================
+   Cell.css — Individual Cell Styles
+   ============================================ */
+
+.ttt-cell {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  border-radius: 14px;
+  border: 1.5px solid var(--border);
+  background: var(--bg-cell);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.12s ease;
+  outline: none;
+}
+
+/* Hover — only on empty, non-game-over cells */
+.ttt-cell:not(.ttt-cell--taken):not(.ttt-cell--disabled):hover {
+  background: var(--bg-cell-hover);
+  border-color: var(--border-hover);
+  transform: scale(1.04);
+}
+
+/* Focus ring for keyboard navigation */
+.ttt-cell:not(.ttt-cell--taken):not(.ttt-cell--disabled):focus-visible {
+  border-color: var(--x-primary);
+  box-shadow: 0 0 0 3px rgba(79, 142, 247, 0.25);
+}
+
+/* Taken cells: no pointer */
+.ttt-cell--taken {
+  cursor: default;
+}
+
+/* Disabled empty cells after game over */
+.ttt-cell--disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+
+/* X color */
+.ttt-cell--x .ttt-cell__mark {
+  color: var(--x-primary);
+}
+
+/* O color */
+.ttt-cell--o .ttt-cell__mark {
+  color: var(--o-primary);
+}
+
+/* Winning cell highlight */
+.ttt-cell--winning.ttt-cell--x {
+  background: var(--x-win-bg);
+  border-color: var(--x-win-border);
+  animation: ttt-win-pulse 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.ttt-cell--winning.ttt-cell--o {
+  background: var(--o-win-bg);
+  border-color: var(--o-win-border);
+  animation: ttt-win-pulse 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes ttt-win-pulse {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.10); }
+  70%  { transform: scale(0.97); }
+  100% { transform: scale(1); }
+}
+
+/* The X / O mark text */
+.ttt-cell__mark {
+  font-family: var(--font-display);
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1;
+  animation: ttt-pop-in 0.2s cubic-bezier(0.22, 1.6, 0.36, 1) both;
+  display: block;
+  letter-spacing: -0.02em;
+}
+
+@keyframes ttt-pop-in {
+  from { transform: scale(0.2); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+/* Keyboard hint number (bottom-right corner) */
+.ttt-cell__kbd {
+  position: absolute;
+  bottom: 5px;
+  right: 7px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-tertiary);
+  pointer-events: none;
+  opacity: 0.7;
+  transition: opacity 0.15s;
+}
+
+.ttt-cell:hover .ttt-cell__kbd {
+  opacity: 1;
+}

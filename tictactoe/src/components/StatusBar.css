@@ -1,0 +1,47 @@
+/* ============================================
+   StatusBar.css
+   ============================================ */
+
+.ttt-status-bar {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.ttt-status__text {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  transition: color 0.2s, font-size 0.2s;
+}
+
+/* Turn indicators */
+.ttt-status--turn-x { color: var(--x-primary); }
+.ttt-status--turn-o { color: var(--o-primary); }
+
+/* Win announcements (larger) */
+.ttt-status--win-x {
+  color: var(--x-primary);
+  font-size: 22px;
+  animation: ttt-result-appear 0.35s cubic-bezier(0.22, 1.4, 0.36, 1) both;
+}
+
+.ttt-status--win-o {
+  color: var(--o-primary);
+  font-size: 22px;
+  animation: ttt-result-appear 0.35s cubic-bezier(0.22, 1.4, 0.36, 1) both;
+}
+
+.ttt-status--draw {
+  color: var(--text-primary);
+  font-size: 22px;
+  animation: ttt-result-appear 0.35s cubic-bezier(0.22, 1.4, 0.36, 1) both;
+}
+
+@keyframes ttt-result-appear {
+  from { transform: scale(0.7); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}

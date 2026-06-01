@@ -1,0 +1,54 @@
+/* ============================================
+   GLOBAL RESET & BASE
+   Tic Tac Toe - Final International University
+   ============================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --font-display: 'Syne', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+
+  /* Color palette */
+  --bg-page:       #0f0f13;
+  --bg-card:       #17171e;
+  --bg-cell:       #1e1e28;
+  --bg-cell-hover: #252532;
+  --border:        rgba(255, 255, 255, 0.08);
+  --border-hover:  rgba(255, 255, 255, 0.18);
+
+  --x-primary:     #4f8ef7;
+  --x-glow:        rgba(79, 142, 247, 0.20);
+  --x-win-bg:      rgba(79, 142, 247, 0.12);
+  --x-win-border:  rgba(79, 142, 247, 0.50);
+
+  --o-primary:     #f75f7a;
+  --o-glow:        rgba(247, 95, 122, 0.20);
+  --o-win-bg:      rgba(247, 95, 122, 0.12);
+  --o-win-border:  rgba(247, 95, 122, 0.50);
+
+  --text-primary:  #f0f0f5;
+  --text-secondary:#9090a8;
+  --text-tertiary: #55556a;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
